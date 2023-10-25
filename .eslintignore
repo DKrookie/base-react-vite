@@ -1,0 +1,11 @@
+/dist
+/node_modules
+/public
+.prettierrc.js
+.stylelintrc.js
+vite.config.ts
+*.json
+commitlint.config.cjs
+index.html
+LICENSE
+.eslintrc.cjs

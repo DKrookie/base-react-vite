@@ -1,0 +1,45 @@
+@font-face {
+  font-family: 'MiSans';
+  src: url('./font/MiSans-Normal.woff2') format('truetype');
+  font-weight: 200;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MiSans';
+  src: url('./font/MiSans-Medium.woff2') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MiSans';
+  src: url('./font/MiSans-Bold.woff2') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'FiraCodeNerdFont';
+  src: url('./font/FiraCodeNerdFont-Light.woff2') format('truetype');
+  font-weight: 200;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'FiraCodeNerdFont';
+  src: url('./font/FiraCodeNerdFont-Medium.woff2') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'FiraCodeNerdFont';
+  src: url('./font/FiraCodeNerdFont-Bold.woff2') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+}
+
+* {
+  font-family: 'FiraCodeNerdFont', 'MiSans', 'sans-serif';
+}

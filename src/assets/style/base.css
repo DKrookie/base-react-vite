@@ -1,0 +1,12 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  overflow: hidden;
+  word-wrap: break-word;
+}
+#root {
+  border-radius: 10px;
+  overflow: hidden;
+}
