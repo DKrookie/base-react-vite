@@ -18,9 +18,22 @@ export default defineConfig(({ command, mode }) => {
 
   return {
     plugins: [
-      react(),
+      react({
+        babel: {
+          babelrc: false,
+          configFile: false,
+          plugins: ['antd-style'],
+        },
+      }),
       checker({ typescript: true }),
-      svgr({ include: '**/*.svg', svgrOptions: { svgoConfig: { plugins: ['prefixIds'] } } }),
+      svgr({
+        svgrOptions: {
+          icon: true,
+          svgoConfig: {
+            plugins: ['prefixIds'],
+          },
+        },
+      }),
       mockDevServerPlugin(),
     ],
     server: {
@@ -54,6 +67,7 @@ export default defineConfig(({ command, mode }) => {
         drop_console: !isTest,
       },
       rollupOptions: {
+        external: ['styled-components'],
         output: {
           manualChunks,
         },

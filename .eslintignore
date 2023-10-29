@@ -5,6 +5,8 @@
 .stylelintrc.js
 vite.config.ts
 *.json
+*.svg
+*.css
 commitlint.config.cjs
 index.html
 LICENSE

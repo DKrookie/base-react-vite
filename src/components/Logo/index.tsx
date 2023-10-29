@@ -1,30 +1,19 @@
 import { Flex } from 'antd';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-import LogoIcon from '@/assets/img/logo.svg';
+import LogoIcon from '@/assets/img/logo.svg?react';
 import setting from '@/config/setting';
-
-const SLink = styled(Link)`
-  font-size: 26px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: black;
-  height: 100%;
-
-  &:hover {
-    color: ${({ theme }) => theme.colorPrimary};
-  }
-`;
+import useStyles from './useStyles';
 
 function Logo() {
+  const { styles } = useStyles();
+
   return (
-    <SLink to="/">
-      <Flex justify="center" align="center" style={{ width: 25, height: 25, marginRight: 5 }}>
-        <LogoIcon />
+    <Link to="/" className={styles.link}>
+      <Flex justify="center" align="center" className={styles.flex}>
+        <LogoIcon className={styles.logo} />
+        <span>{setting.logoText}</span>
       </Flex>
-      <span>{setting.logoText}</span>
-    </SLink>
+    </Link>
   );
 }
 

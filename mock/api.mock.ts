@@ -5,15 +5,15 @@ const total = 5380;
 
 export default defineMock({
   url: '/api/test',
-  body: ({ body }) => {
-    const start = body.pageSize * (body.page - 1);
-    const tail = body.pageSize * body.page;
+  body: ({ query }) => {
+    const start = query.pageSize * (query.page - 1);
+    const tail = query.pageSize * query.page;
     const end = tail - total >= 0 ? total : tail;
 
     const data = Mock.mock({
       total,
-      current: body.page,
-      pageSize: end - start,
+      current: query.page,
+      size: end - start,
       [`list|${end - start}`]: [
         {
           'id|+1': start,

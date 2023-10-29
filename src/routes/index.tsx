@@ -5,13 +5,8 @@ import {
   GlobalOutlined,
   HomeOutlined,
 } from '@ant-design/icons';
-import { Navigate, RouteObject, Link as RRLink } from 'react-router-dom';
-import styled from 'styled-components';
+import { Navigate, RouteObject, Link } from 'react-router-dom';
 import type { ItemType, RouteConfiguration } from '@/types';
-
-const Link = styled(RRLink)`
-  color: inherit !important;
-`;
 
 const routesConfiguration: RouteConfiguration[] = [
   {
@@ -125,7 +120,7 @@ const getMenuItems = (menuSetting: ItemType[]): ItemType[] => {
     let menuNode: React.ReactNode;
     if (children) {
       menuNode = (
-        <Link to={key as string}>
+        <Link to={key as string} style={{ color: 'inherit' }}>
           {label}
           <DownOutlined style={{ marginLeft: '5px' }} />
         </Link>
@@ -133,7 +128,11 @@ const getMenuItems = (menuSetting: ItemType[]): ItemType[] => {
       const c = getMenuItems(children as ItemType[]);
       return { ...ms, label: menuNode, key: key, title: label, children: c };
     } else {
-      menuNode = <Link to={key}>{label}</Link>;
+      menuNode = (
+        <Link to={key} style={{ color: 'inherit' }}>
+          {label}
+        </Link>
+      );
       return { ...ms, label: menuNode, key: key, title: label };
     }
   });

@@ -62,5 +62,6 @@ module.exports = {
       },
     ],
     '@typescript-eslint/prefer-nullish-coalescing': ['error', { ignoreConditionalTests: true }],
+    '@typescript-eslint/no-floating-promises': ['off'],
   },
 };

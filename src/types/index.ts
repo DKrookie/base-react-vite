@@ -1,4 +1,4 @@
-import type { GlobalToken, MenuProps } from 'antd';
+import type { MenuProps } from 'antd';
 import type {
   MenuDividerType,
   MenuItemGroupType,
@@ -6,13 +6,8 @@ import type {
   SubMenuType,
 } from 'antd/es/menu/hooks/useItems';
 import type { IndexRouteObject, NonIndexRouteObject } from 'react-router-dom';
-import 'styled-components';
 
 export type { ItemType } from 'antd/es/menu/hooks/useItems';
-
-declare module 'styled-components' {
-  export interface DefaultTheme extends GlobalToken {}
-}
 
 type NoChildrenItemType<T extends MenuItemType = MenuItemType> =
   | T
