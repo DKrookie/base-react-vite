@@ -1,5 +1,10 @@
+import Scene from './components/Scene';
 export const Component = () => {
-  return <div>View2</div>;
+  return (
+    <div>
+      <Scene />
+    </div>
+  );
 };
 
 if (import.meta.env.MODE === 'development') {

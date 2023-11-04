@@ -1,12 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { Layout, Menu, Segmented } from 'antd';
 import { useLoaderData, useLocation } from 'react-router-dom';
 import SuspenseOutlet from '@/components/SuspenseOutlet';
 import setting from '@/config/setting';
 import Moon from '@/assets/img/moon-fill.svg?react';
 import Sun from '@/assets/img/sun-fill.svg?react';
+import ThemeContext from '@/context/ThemeContext';
 import useStyles from './useStyles';
-import type { ItemType } from '@/types';
+import { ThemeValue, type ItemType } from '@/types';
 
 const Logo = setting.logo;
 
@@ -36,6 +37,8 @@ export const loader = async () => {
 export const Component = () => {
   const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
 
+  const context = useContext(ThemeContext);
+
   const items = useLoaderData() as ItemType[];
   const location = useLocation();
 
@@ -47,7 +50,9 @@ export const Component = () => {
     setSelectedKeys([location.pathname]);
   }, [location]);
 
-  console.log(styles);
+  const handleChangeTheme = (value: ThemeValue) => {
+    context?.setTheme(value in ThemeValue ? ThemeValue[value] : ThemeValue.light);
+  };
 
   return (
     <Layout style={{ width: '100vw' }}>
@@ -61,16 +66,18 @@ export const Component = () => {
         />
         <Segmented
           block
+          defaultValue={context?.theme}
           options={[
             {
-              value: 'dark',
-              icon: <Moon />,
+              value: ThemeValue.dark,
+              icon: <Moon className={styles.theme} />,
             },
             {
-              value: 'light',
-              icon: <Sun />,
+              value: ThemeValue.light,
+              icon: <Sun className={styles.theme} />,
             },
           ]}
+          onChange={handleChangeTheme as (value: string | number) => void}
         />
       </Header>
       <Layout>

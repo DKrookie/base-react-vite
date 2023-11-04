@@ -1,7 +1,7 @@
-import Mock from 'mockjs';
+import Mock from 'better-mock';
 import { defineMock } from 'vite-plugin-mock-dev-server';
 
-const total = 5380;
+const total = 5401;
 
 export default defineMock({
   url: '/api/test',
@@ -10,10 +10,14 @@ export default defineMock({
     const tail = query.pageSize * query.page;
     const end = tail - total >= 0 ? total : tail;
 
-    const data = Mock.mock({
+    const res = {
       total,
-      current: query.page,
       size: end - start,
+      current: Number(query.page),
+      list: [],
+    };
+
+    const data = Mock.mock({
       [`list|${end - start}`]: [
         {
           'id|+1': start,
@@ -22,6 +26,8 @@ export default defineMock({
         },
       ],
     });
-    return data;
+    if (Array.isArray(data.list)) res.list = data.list;
+    else res.list = res.list.concat(data.list);
+    return res;
   },
 });

@@ -13,7 +13,7 @@ const useStyles = createStyles(({ token, css }, props: SettingObject) => ({
     background: ${token.colorBgContainer};
     position: relative;
     z-index: 100;
-    height: ${props.layoutHeaderHeight ?? 64};
+    height: ${props.layoutHeaderHeight ?? 64}px;
     box-shadow:
       0 0.3px 0.8px rgba(0, 0, 0, 0.02),
       0 0.7px 2px rgba(0, 0, 0, 0.028),
@@ -24,8 +24,11 @@ const useStyles = createStyles(({ token, css }, props: SettingObject) => ({
   content: css`
     color: ${token.colorText};
     overflow: auto;
-    padding: ${token.paddingXS};
+    padding: ${token.paddingXS}px;
     height: calc(100vh - ${props.layoutHeaderHeight ?? 64}px);
+  `,
+  theme: css`
+    vertical-align: middle;
   `,
 }));
 

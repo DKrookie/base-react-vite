@@ -40,3 +40,8 @@ export interface SettingObject {
   logoText: string;
   logo?: (() => JSX.Element) | SVGURL;
 }
+
+export enum ThemeValue {
+  dark = 'dark',
+  light = 'light',
+}
